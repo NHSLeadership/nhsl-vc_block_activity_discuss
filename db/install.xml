@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/activity_discuss/db" VERSION="20190117" COMMENT="XMLDB file for Moodle blocks/course_discuss."
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_activity_discus_lookup" COMMENT="Course Discuss block Discussion Mapping">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Course id"/>
+        <FIELD NAME="forumid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Forum id"/>
+        <FIELD NAME="discussionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Discussion id"/>
+        <FIELD NAME="pageinternalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Page internal id, e.g. for the section, page, book chapter"/>
+        <FIELD NAME="pagename" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" COMMENT="Page name, e.g. section, page"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="discussionsesctions" UNIQUE="false" FIELDS="discussionid, pageinternalid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="block_activity_discuss" COMMENT="Course Discuss block">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Course id"/>
+        <FIELD NAME="forumid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Forum id"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="courseforum" UNIQUE="false" FIELDS="courseid, forumid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
