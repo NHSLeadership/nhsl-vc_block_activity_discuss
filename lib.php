@@ -202,6 +202,16 @@ function block_activity_discuss_get_current_page_details() {
             $currentpage = 'book';
         } else if ( stristr ($currenturl, "mod/scorm/view") ) {
             $currentpage = 'scorm';
+        } else if ( stristr ($currenturl, "mod/assign/view") ) {
+            $currentpage = 'assign';
+        } else if ( stristr ($currenturl, "mod/lesson/view") ) {
+            $currentpage = 'lesson';
+        } else if ( stristr ($currenturl, "mod/workshop/view") ) {
+            $currentpage = 'workshop';
+        } else if ( stristr ($currenturl, "mod/folder/view") ) {
+            $currentpage = 'folder';
+        } else if ( stristr ($currenturl, "mod/resource/view") ) {
+            $currentpage = 'resource';
         }
 
     }
@@ -226,6 +236,11 @@ function block_activity_discuss_get_current_page_details() {
                 $internalid = $querydata['chapterid'];
                 break;
             case 'scorm' :
+            case 'assign' :
+            case 'lesson' :
+            case 'workshop' :
+            case 'folder' :
+            case 'resource' :
                 // Get the book chapter ID.  This is actually the ID from the book_chapters table.
                 parse_str(parse_url(html_entity_decode($currenturl), PHP_URL_QUERY), $querydata);
                 $internalid = $querydata['id'];

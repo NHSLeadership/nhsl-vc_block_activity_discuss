@@ -62,7 +62,7 @@ require_once(dirname(__FILE__) . '/lib.php');
 class block_activity_discuss extends block_base {
 
     /** @var array The types of pages the block is allowed to display on */
-    public static $allowedpages = array ('section', 'page', 'book', 'scorm');
+    public static $allowedpages = array ('section', 'page', 'book', 'scorm', 'assign', 'lesson', 'workshop', 'folder', 'resource');
 
     /**
      * Adds title to block instance.

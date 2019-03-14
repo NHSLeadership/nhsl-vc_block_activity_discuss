@@ -194,6 +194,126 @@ class block_activity_discuss_external extends external_api {
                 $discussiontitle = 'Page id ' . $pageinternalid;
             }
 
+        } else if ($pagename == 'scorm') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/scorm/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'scorm') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Scorm id ' . $pageinternalid;
+            }
+
+        } else if ($pagename == 'assign') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/assign/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'assign') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Assignment id ' . $pageinternalid;
+            }
+
+        } else if ($pagename == 'lesson') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/lesson/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'lesson') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Lesson id ' . $pageinternalid;
+            }
+
+        } else if ($pagename == 'workshop') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/workshop/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'workshop') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Workshop id ' . $pageinternalid;
+            }
+
+        } else if ($pagename == 'folder') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/folder/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'folder') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Folder id ' . $pageinternalid;
+            }
+
+        } else if ($pagename == 'resource') {
+
+            if (!empty($config->initialpostlinktopage)) {
+                $pagelink = new moodle_url('/mod/resource/view.php', array('id' => $pageinternalid));
+            }
+
+            // Get the relevant page name.
+            $modinfo = get_fast_modinfo($courseid);
+
+            foreach ($modinfo->cms as $mod) {
+                if ( ($mod->modname == 'resource') &&
+                    ($mod->id == $pageinternalid) ) {
+                    $discussiontitle = $mod->name;
+                }
+            }
+
+            if (empty ($discussiontitle)) {
+                $discussiontitle = 'Resource id ' . $pageinternalid;
+            }
+
         }
 
         $options = array(
