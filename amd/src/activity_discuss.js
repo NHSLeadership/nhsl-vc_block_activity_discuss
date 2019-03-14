@@ -34,7 +34,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
 
             // For max number of characters in a textarea input.
             $(document).ready(function() {
-                var textMax = 1200;
+                var textMax = 1500;
                 $('#block_activity_discuss_form_message_feedback').html(textMax + langstrings.charactersremainingtext);
 
                 $('#block_activity_discuss_form_message').keyup(function() {
@@ -125,8 +125,9 @@ define(['jquery', 'core/ajax'], function($, ajax) {
                                                             // Animation complete.
                                                             $("#comment_0").show();
                                                             $("#comment_0").text("");
-
-                                                            displayDiscussion(data, data.discussionid);
+                                                            location.reload();
+                                                            // made the first post trigger a hard reload to display comment correctly
+                                                            //displayDiscussion(data, data.discussionid);
                                                         });
 
                                                     }
