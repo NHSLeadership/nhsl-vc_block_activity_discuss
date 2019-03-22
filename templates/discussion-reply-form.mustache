@@ -36,12 +36,16 @@
 }}
 
     <form id="course-discuss-discussion-form" method="post" aria-label="formlabel" class="course-discuss-form">
+        <div class="overlay_container">
+            <div class="lds-dual-ring"></div>
+            <div class="info">
+                <p>{{{threadsendingtext}}}</p>
+            </div>
+        </div>
         <fieldset>
             <div class="course-discuss-validation-errors" role="alert"></div>
-
                 <textarea name="message" id="block_activity_discuss_form_message" rows="4" maxlength="1200" placeholder="{{replyplaceholder}}"></textarea>
                 <div id="block_activity_discuss_form_message_feedback"></div>
-
                 <input type="hidden" name="forumid" value="{{forumid}}" />
                 <input type="hidden" name="courseid" value="{{courseid}}" />
                 <input type="hidden" name="pageinternalid" value="{{pageinternalid}}" />

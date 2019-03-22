@@ -421,8 +421,8 @@ function block_activity_discuss_get_posts_nested($course, $cm, $forum, $discussi
     $config = get_config("block_activity_discuss");
 
     if (!empty($posts[$parent->id]->children)) {
-        $posts = $posts[$parent->id]->children;
-
+        // Display in reversed Moodle order - oldest first
+        $posts = array_reverse($posts[$parent->id]->children, true);
         foreach ($posts as $post) {
 
             // User picture.

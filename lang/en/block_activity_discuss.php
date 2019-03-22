@@ -57,7 +57,7 @@ $string['pleaseaddmessagetext'] = 'Please add a message';
 $string['postcouldnotbeaddedtext'] = 'Your post could not be added';
 $string['warninginternalerrortext'] = 'Warning, possible internal error when adding discussion';
 $string['warningtitletext'] = 'Warnings: ';
-$string['thankyouforpostingtext'] = 'Thank you for posting';
+$string['thankyouforpostingtext'] = 'Thanks for your comment. Loading...';
 $string['errortitletext'] = 'Error message: ';
 $string['errordisplayreplyformtext'] = 'Error displaying reply form';
 $string['discussioncreatedinternalerrortext'] = 'Discussion created but possible internal error.';
@@ -68,6 +68,7 @@ $string['initialpostlinktopagedesc'] = 'During creation of initial post on a pag
  E.g. Discuss "Section 1", where "Section 1" can be a link to the section page.';
 
 $string['threadlinktext'] = 'View thread in Forum';
+$string['threadsendingtext'] = 'Sending message...';
 $string['editlinktext'] = 'Edit post';
 
 $string['allowedit'] = 'Show Edit link for a post';

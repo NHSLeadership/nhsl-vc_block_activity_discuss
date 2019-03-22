@@ -180,6 +180,7 @@ class block_activity_discuss extends block_base {
             $discussionid = 0;
             $parentpostid = 0;
             $this->content->text .= '<div id="block_activity_discuss_reply_container">';
+
             $this->content->text .= block_activity_discuss_display_new_comment_form($cm, $forumid,
                                     $pagedetails['pageinternalid'], $pagedetails['pagename'], 'course-discuss-create-post',
                                     $discussionid, $parentpostid);
