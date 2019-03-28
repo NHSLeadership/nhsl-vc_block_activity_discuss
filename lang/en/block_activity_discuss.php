@@ -22,18 +22,18 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Course Activity discussion';
-$string['blocktitle'] = 'Course Activity discussion';
+$string['pluginname'] = 'Course Activity comments';
+$string['blocktitle'] = 'Course Activity comments';
 
-$string['blockheadertitle'] = 'Discussion';
+$string['blockheadertitle'] = 'Comments';
 $string['blockheadertitletagline'] = 'Tagline to display below header title';
 $string['blockheadertitletaglinedesc'] = 'Optional tagline to display below the header title.';
 
-$string['activity_discuss:addinstance'] = 'Add a Course activity discussion block';
-$string['activity_discuss:myaddinstance'] = 'Add a Course activity discussion block to the My Moodle page.';
+$string['activity_discuss:addinstance'] = 'Add a Course activity comments block';
+$string['activity_discuss:myaddinstance'] = 'Add a Course activity comments block to the My Moodle page.';
 
-$string['title'] = 'Course activity discussion';
-$string['titledesc'] = 'Title for Course activity discussion block.  Leave empty to not show one (default).';
+$string['title'] = 'Course activity comments';
+$string['titledesc'] = 'Title for Course activity comments block.  Leave empty to not show one (default).';
 
 $string['displayerrornoforumexists'] = 'Display Error if no valid Forum of type "General" exists';
 $string['displayerrornoforumexistsdesc'] = 'Display error message if no Forum of type "Standard forum for general use" exists in the course.';
