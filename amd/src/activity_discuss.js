@@ -50,7 +50,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
 
                 event.preventDefault();
 
-                var data = $('#course-discuss-discussion-form').serializeArray().reduce(function(obj, item) {
+                var data = $(this).find('#course-discuss-discussion-form').serializeArray().reduce(function(obj, item) {
                     obj[item.name] = item.value;
                     return obj;
                 }, {});
@@ -111,14 +111,14 @@ define(['jquery', 'core/ajax'], function($, ajax) {
 
                                                     if (postresult.eventaction == 'postnotcreated') {
                                                         $("#comment_0").append('<h3>' + langstrings.postcouldnotbeaddedtext +
-                                                                               '</h3>');
+                                                            '</h3>');
                                                         $("#comment_0").append(langstrings.errortitletext + ' "' +
-                                                                               postresult.errormessage + '".<br>');
+                                                            postresult.errormessage + '".<br>');
 
                                                     } else {
 
                                                         $("#comment_0").append('<h3>' + langstrings.thankyouforpostingtext +
-                                                                               '</h3>');
+                                                            '</h3>');
                                                         $("#block_activity_discuss_form_message").val("");
 
                                                         $("#comment_0").fadeOut(3000, function() {
@@ -135,28 +135,25 @@ define(['jquery', 'core/ajax'], function($, ajax) {
                                                 }).fail(function(ex) {
                                                     $("#comment_0").append('<h3>' + langstrings.postcouldnotbeaddedtext + '</h3>');
                                                     $("#comment_0").append(langstrings.errortitletext + ' "' + ex.message +
-                                                                           '".<br>');
-
+                                                        '".<br>');
                                                 });
-
                                             },
 
                                         fail: function(ex) {
                                             $("#comment_0").html('<h3>' + langstrings.discussioncreatedinternalerrortext + '</h3>');
                                             $("#comment_0").append(ex.message);
+                                        },
 
-                                        }
                                     }]);
                                 }
                             }
                         },
 
                     fail: function(ex) {
-                            $("#comment_0").html('<h3>' + langstrings.postcouldnotbeaddedtext + '</h3>');
-                            $("#comment_0").append(langstrings.errortitletext + ' "' + ex.message + '".<br>');
+                        $("#comment_0").html('<h3>' + langstrings.postcouldnotbeaddedtext + '</h3>');
+                        $("#comment_0").append(langstrings.errortitletext + ' "' + ex.message + '".<br>');
 
-                            $("#block_activity_discuss_form_message").val("");
-
+                        $("#block_activity_discuss_form_message").val("");
                     }
                 }]);
 
@@ -213,7 +210,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
             // Handle click on reply button to display reply form.
             $(".course-discuss-feed-container").on("click", function(event) {
 
-                if ((event.target.getAttribute("class") == "block_activity_discuss_action_button")) {
+                if (event.target.getAttribute("class") == "block_activity_discuss_action_button") {
                     var postid = $(event.target).val();
 
                     // Get data from main reply form. E.g. discussion id, forum id etc.
@@ -260,7 +257,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
 
                 if (data.message == "") {
                     $("#comment_" + data.parentpostid).html('<h3 class="block_activity_discuss_error">' +
-                                                            langstrings.pleaseaddmessagetext + '</h3>');
+                        langstrings.pleaseaddmessagetext + '</h3>');
                     return;
                 }
 
@@ -272,7 +269,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
                     if (postresult.eventaction == 'postnotcreated') {
                         $("#comment_" + data.parentpostid).append('<h3>' + langstrings.postcouldnotbeaddedtext + '</h3>');
                         $("#comment_" + data.parentpostid).append(langstrings.errortitletext + ' "' + postresult.errormessage +
-                                                                  '".<br>');
+                            '".<br>');
 
                     } else {
 
@@ -354,11 +351,18 @@ define(['jquery', 'core/ajax'], function($, ajax) {
              */
             var postReply = function(data) {
 
+                $("#block_activity_discuss_reply_container .overlay_container").css('display', 'flex');
                 return ajax.call([{
                     methodname: 'block_activity_discuss_create_post',
                     args: {'courseid': data.courseid, 'forumid': data.forumid, 'contextid': data.contextid,
                         'message': data.message, 'discussionid': data.discussionid, 'subject': data.subject,
-                        'parentpostid': data.parentpostid}
+                        'parentpostid': data.parentpostid},
+                    done: function() {
+                        $("#block_activity_discuss_reply_container .overlay_container").css('display', 'none');
+                    },
+                    fail: function() {
+                        $("#block_activity_discuss_reply_container .overlay_container").css('display', 'none');
+                    }
                 }]);
 
             };
