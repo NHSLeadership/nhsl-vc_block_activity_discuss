@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'block_activity_discuss';
 
 // YYYYMMDDHH (year, month, day, 24-hr time).
-$plugin->version = 2019031200;
+$plugin->version = 2019032800;
 
 // YYYYMMDDHH (This is the release version for Moodle 3.6.2).
 $plugin->requires = 2018120302.08;
