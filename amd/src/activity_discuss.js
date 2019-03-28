@@ -50,7 +50,7 @@ define(['jquery', 'core/ajax'], function($, ajax) {
 
                 event.preventDefault();
 
-                var data = $(this).find('#course-discuss-discussion-form').serializeArray().reduce(function(obj, item) {
+                var data = $('#course-discuss-discussion-form').serializeArray().reduce(function (obj, item) {
                     obj[item.name] = item.value;
                     return obj;
                 }, {});
